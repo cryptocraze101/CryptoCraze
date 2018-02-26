@@ -23,10 +23,13 @@
       </sizepolicy>
      </property>
      <property name="pixmap">
-      <pixmap resource="../bitcoin.qrc">:/images/about</pixmap>
+      <pixmap resource="../bitcoin.qrc">:/images/backg</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>false</bool>
      </property>
      <property name="alignment">
-      <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </item>
@@ -97,7 +100,9 @@
         <string>
 Copyright © 2009-2012 Bitcoin Developers
 Copyright © 2012 PPCoin Developers
-Copyright © 2014 TruckCoin Developers, Copyright © 2014 CryptoCraze Developers
+Copyright © 2014 TruckCoin Developers
+Copyright © 2014 Hyperstake Developers
+Copyright © 2017 CryptoCraze Developers
 </string>
        </property>
        <property name="textInteractionFlags">
