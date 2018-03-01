@@ -2630,7 +2630,7 @@ bool LoadBlockIndex(bool fAllowNew)
             return false;
 
         // Genesis block
-        const char* pszTimestamp = "29/5/14 - Replica Ghostbusters car stops the traffic - BBC UK";
+        const char* pszTimestamp = "1/3/18 - This coin is going to be yuge, believe me yuge!";
         CTransaction txNew;
         txNew.nTime = nChainStartTime;
         txNew.vin.resize(1);
@@ -2643,13 +2643,13 @@ bool LoadBlockIndex(bool fAllowNew)
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1401331380;
+        block.nTime    = 1519897907;
         block.nBits    = bnProofOfWorkLimit.GetCompact();
-        block.nNonce   = 1779291;
+        block.nNonce   = 0;
         if(fTestNet)
 		{
-			block.nTime = 1424304823;
-			block.nNonce = 0;
+            block.nTime = 1519897905;
+            block.nNonce = 0;
 		}
 		
 		if (false ) {
@@ -2674,7 +2674,7 @@ bool LoadBlockIndex(bool fAllowNew)
         printf("block.nTime = %u \n", block.nTime);
         printf("block.nNonce = %u \n", block.nNonce);
 
-        assert(block.hashMerkleRoot == uint256("37ad323037e6e55553fadebbe60690a1bff2752f947b7af8cb6b54929f5fee3d"));
+        assert(block.hashMerkleRoot == uint256("463ee6d927c3abe9239c2ea9e0b95eca6295354112f95d091d0823b3ac42780f"));
 		assert(block.GetHash() == (!fTestNet ? hashGenesisBlock : hashGenesisBlockTestNet));
 
         // Start new block file

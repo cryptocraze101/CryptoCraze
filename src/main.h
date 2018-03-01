@@ -54,15 +54,15 @@ static const int fHaveUPnP = true;
 static const int fHaveUPnP = false;
 #endif
 
-static const uint256 hashGenesisBlockOfficial("0x000005fe04e512585c3611369c7ce23f130958038c18a462577d002680dab4fc");
-static const uint256 hashGenesisBlockTestNet ("0x534d8009c099b04d05d7475f48eea977ca2fedaf409e233c884eff34d2efdb8e");
+static const uint256 hashGenesisBlockOfficial("0xa6210a3a0d8f4aa88fb402bdb9360d9a3f50f7c17ba770dc08d6002a01bd0e8a");
+static const uint256 hashGenesisBlockTestNet ("0x");
 
 inline int64 GetClockDrift(int64 nTime)
 {
 	if(nTime < FORK_TIME2)
-		return 15 * 60;
-	else
-		return 60;
+        return 15 * 60;
+    else
+        return 60;
 }
 static const int64 MAX_TIME_SINCE_BEST_BLOCK = 10; // how many seconds to wait before sending next PushGetBlocks()
 extern CScript COINBASE_FLAGS;
