@@ -6,7 +6,7 @@
 #include "version.h"
 
 // Client version number
-#define CLIENT_VERSION_SUFFIX   "CryptoCraze-1.1.4.0"
+#define CLIENT_VERSION_SUFFIX   "CryptoCraze-0.0.1.0"
 
 
 // The following part of the code determines the CLIENT_BUILD variable.
