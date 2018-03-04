@@ -2097,7 +2097,7 @@ bool CBlock::CheckBlock(bool fCheckPOW, bool fCheckMerkleRoot) const
     if (IsProofOfStake() && !CheckCoinStakeTimestamp(GetBlockTime(), (int64)vtx[1].nTime))
         return DoS(50, error("CheckBlock() : coinstake timestamp violation nTimeBlock=%lld nTimeTx=%u", GetBlockTime(), vtx[1].nTime));
 
-    // Check transactions
+    // Check transactionsproof of stake how to generate initial blockchain
     BOOST_FOREACH(const CTransaction& tx, vtx)
     {
         if (!tx.CheckTransaction())
@@ -4497,7 +4497,29 @@ void BitcoinMiner(CWallet *pwallet, bool fProofOfStake)
 
         fWalletStaking = false;
 
-        while (vNodes.empty() || IsInitialBlockDownload() || pwallet->IsLocked()  ||  !fMintableCoins)
+        if (vNodes.empty())
+        {
+            printf("Nodes Empty\n");
+        }
+
+        if (IsInitialBlockDownload())
+        {
+            printf("Is Initial Block Download \n");
+        }
+
+        if (pwallet->IsLocked())
+        {
+            printf("Is wallet locket \n");
+        }
+
+        if (!fMintableCoins)
+        {
+            printf("No mintable coins \n");
+        }
+
+        // ||  !fMintableCoins
+
+        while (vNodes.empty() || IsInitialBlockDownload() || pwallet->IsLocked())
         {
             nLastCoinStakeSearchInterval = 0;
             Sleep(1000);
@@ -4528,6 +4550,7 @@ void BitcoinMiner(CWallet *pwallet, bool fProofOfStake)
             return;
         IncrementExtraNonce(pblock.get(), pindexPrev, nExtraNonce);
 
+        /*
         if (fProofOfStake)
         {
             // ppcoin: if proof-of-stake block found then process block
@@ -4547,6 +4570,7 @@ void BitcoinMiner(CWallet *pwallet, bool fProofOfStake)
             }
             continue;
         }
+        */
 
         printf("Running BitcoinMiner with %lu transactions in block (%u bytes)\n", pblock->vtx.size(),
                ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
